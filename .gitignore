@@ -1,0 +1,12 @@
+.vscode/
+.ruff_cache
+.pytest_cache
+__pycache__
+poetry.lock
+.idea/.gitignore
+.idea/cmd_controller.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml

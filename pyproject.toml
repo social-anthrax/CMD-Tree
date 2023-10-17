@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "cmd-controller"
+version = "0.1.0"
+description = ""
+authors = ["Artemis Livingstone <none@null.local>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pydantic = "^2.0.3"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.278"
+pytest = "^7.4.0"
+pre-commit = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 119
+
+[tool.ruff]
+select = ["E", "F", "I", "PL", "W291"]
+show-fixes = true
+line-length = 119
+fixable = ['ALL']
+target-version = "py311"
+
+[tool.ruff.isort]
+combine-as-imports = true
+
+[tool.ruff.pydocstyle]
+convention = "pep257"
