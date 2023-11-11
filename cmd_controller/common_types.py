@@ -30,7 +30,6 @@ def check_key_dict_type(d: Any | dict[Any, _T1], expected_key_type: Type[_T]) ->
 
 
 class RecursiveDict(Generic[KT, VT], Dict[KT, Union[VT, "RecursiveDict[KT, VT]"]]):
-    # class RecursiveDict(Generic[KT, VT], Dict[KT, Union[VT, "RecursiveDict[KT, VT]"]]):
     """A recursive dict that holds key type KT, and value type VT | Itself."""
 
     @staticmethod
@@ -49,7 +48,7 @@ class RecursiveDict(Generic[KT, VT], Dict[KT, Union[VT, "RecursiveDict[KT, VT]"]
         This is done by checking if the value is not a Recursive Dict
 
         :param VT | RecursiveDict[KT, VT] d: _description_
-        :return TypeGuard[VT]: _description_
+        :return TypeGuard[VT]: true if d is of the RecursiveDict leaf type
         """
         return not RecursiveDict.__is_recursive_dict(d)
 

@@ -1,7 +1,8 @@
 import unittest
 from collections import deque
+from typing import Any
 
-from cmd_controller.parser import Command
+from cmd_controller.tree import Command
 
 commands_root = Command(None)
 dict_commands = Command("dict")
@@ -9,9 +10,9 @@ get_commands = Command("get")
 
 
 @get_commands.add_command("entry")
-def get_dict_entry(key: str):
+def get_dict_entry(key: str) -> tuple[str, str]:
     """
-    Returns the key and the entry for a key
+    Simulates a return of a key and the entry for a key
     :param key:
     :return:
     """
@@ -43,8 +44,8 @@ def dict_optional_length(a: str, b: str, optional: str = "Hello"):
     return locals()
 
 
-@dict_commands.add_command("optional_custom_length", (2, 3))
-def dict_optional_length2(a: str, b: str, optional: str = "Hello", optional2: str = "hello again"):
+@dict_commands.add_command("optional_custom_length", (2, 4))
+def dict_optional_length2(a: str, b: str, optional: str = "Hello", optional2: str = "hello again") -> dict[str, Any]:
     return locals()
 
 
@@ -153,7 +154,10 @@ class TestProfile(unittest.TestCase):
         cmd = self.__cmd_deque("dict optional_custom_length a b c")
         commands_root.invoke(cmd)
 
-        cmd = self.__cmd_deque("dict optional a b c d ")
+        cmd = self.__cmd_deque("dict optional_custom_length a b c d")
+        commands_root.invoke(cmd)
+
+        cmd = self.__cmd_deque("dict optional_custom_length a b c d e")
         self.assertRaises(TypeError, commands_root.invoke, cmd)
 
     def test_varargs(self):
