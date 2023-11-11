@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "cmd-controller"
 version = "0.1.0"
-description = ""
+description = "A command handler inspired by Fast API"
 authors = ["Artemis Livingstone <ar.d.livingstone@gmail.com>"]
 readme = "README.md"
 
