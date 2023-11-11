@@ -8,7 +8,7 @@ from typing import Any, Callable, Self, TypeAlias, Union
 
 from pydantic import BaseModel, ConfigDict
 
-from cmd_controller.common_types import RecursiveDict
+from cmd_tree.common_types import RecursiveDict
 
 logger = logging.getLogger(__name__)
 

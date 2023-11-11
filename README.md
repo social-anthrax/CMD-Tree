@@ -17,7 +17,7 @@ A command parser meant for TUI like interaction. Inspired by Fast API's decorato
 ## Usage/Examples
 
 ```python
-from cmd_controller.tree import Command
+from cmd_tree.tree import Command
 
 commands_root = Command(None)
 dict_commands = Command("dict")
@@ -28,6 +28,7 @@ dict_commands.add_command_subgroup(get_commands)
 # Add dict commands to the root group.
 commands_root.add_command_subgroup(dict_commands)
 
+
 # Can be invoked with `dict get entry`
 @get_commands.add_command("entry")
 def get_dict_entry(key: str) -> tuple[str, str]:
@@ -37,6 +38,7 @@ def get_dict_entry(key: str) -> tuple[str, str]:
     :return:
     """
     return key, "hello"
+
 
 # Variable length argument, can either be invoked with 0 arguments or 2
 @dict_commands.add_command("list_len", length_check=[0, 2])
@@ -59,8 +61,8 @@ def simple_subcommand(x: str):
     """Contains docstring"""
     return x
 
-  
+
 # TODO: Make this an actual test.
-print(commands_root.help()) # Show the help tree
-print(commands_root.help(show_debug="yes")) # Show's the location of the functions for debugging purposes.
+print(commands_root.help())  # Show the help tree
+print(commands_root.help(show_debug="yes"))  # Show's the location of the functions for debugging purposes.
 ```

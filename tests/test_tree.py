@@ -2,7 +2,7 @@ import unittest
 from collections import deque
 from typing import Any
 
-from cmd_controller.tree import Command
+from cmd_tree.tree import Command
 
 commands_root = Command(None)
 dict_commands = Command("dict")
