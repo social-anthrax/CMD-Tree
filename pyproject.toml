@@ -2,7 +2,7 @@
 name = "cmd-controller"
 version = "0.1.0"
 description = ""
-authors = ["Artemis Livingstone <none@null.local>"]
+authors = ["Artemis Livingstone <ar.d.livingstone@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
